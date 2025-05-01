@@ -1,0 +1,25 @@
+SPI Master 
+
+- Purpose: Controls data communication between a microcontroller (Master) and peripheral devices (Slaves).
+- Signals Used:- SCLK → SPI Clock (Synchronizes communication).
+- MOSI → Master Out, Slave In (Sends data from Master).
+- MISO → Master In, Slave Out (Receives data from Slave).
+- CS → Chip Select (Activates the slave).
+
+
+🔧 Functionality
+
+- Master initiates communication by sending a clock signal (SCLK).
+- MOSI transmits data from the Master.
+- MISO receives data from the Slave (loopback used in your code).
+- CS goes LOW when the Master selects a Slave.
+
+🛠 Verilog Code Summary
+
+- SPI Master Module- Generates clock (SCLK).
+- Handles data flow (MOSI → MISO).
+- Controls the slave using CS.
+
+- Testbench- Toggles clk every 5 time units.
+- Sends test data (mosi = 1, then mosi = 0).
+- Ends simulation after testing.
