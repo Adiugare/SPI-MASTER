@@ -9,18 +9,24 @@ The waveform represents various SPI signals over time (in nanoseconds). The key 
 •	sck (SPI Clock) → Controls timing for data transfer.
 
 🔍 Key Observations
+
 1.	Clock (clk & sck) Behavior
-   o	clk toggles continuously.
-   o	sck changes on every rising edge of clk, synchronizing SPI data.
+   clk toggles continuously.
+   sck changes on every rising edge of clk, synchronizing SPI data.
 
 2.	Chip Select (cs) Activation
-   o	cs starts HIGH → No communication.
-   o	When cs goes LOW → SPI master starts data transfer.
+   Cs starts HIGH → No communication.
+   When cs goes LOW → SPI master starts data transfer.
 
 3.	MOSI & MISO Data Flow
-   o	When mosi = HIGH (1), the master sends 1 to the slave.
-   o	miso mirrors mosi, demonstrating a simple loopback.
+   When mosi = HIGH (1), the master sends 1 to the slave.
+   Miso mirrors mosi, demonstrating a simple loopback.
 
 4.	Reset Signal Impact
-   o	reset is HIGH initially, keeping SPI inactive.
-   o	reset goes LOW → SPI operation begins.
+   Reset is HIGH initially, keeping SPI inactive.
+   Reset goes LOW → SPI operation begins.
+
+Summary of Waveform Timing
+- 0 - 10 ns: Reset is HIGH → System is inactive.
+- 10 - 50 ns: Reset LOW → Chip Select goes LOW → Communication starts.
+- 50 - 110 ns: MOSI transmits data → MISO mirrors it → Clock cycles synchronize.
